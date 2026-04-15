@@ -1,0 +1,872 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────
+   VARIABLES & PREMIUM PALETTE
+───────────────────────────────────────── */
+:root {
+    --white: #ffffff;
+    --black: #0a0a0a;
+    --sand: #d4a373;        /* Tono tierra base */
+    --mustard: #e9c46a;     /* Dorado/Mostaza elegante */
+    --cream: #f4f1de;       /* Crema para fondos de lujo */
+    --slate: #4a5759;       /* Gris azulado para contraste */
+    --accent: var(--sand);
+    --muted: rgba(255, 255, 255, 0.55);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.6s var(--ease-out);
+}
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--black);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+}
+
+section {
+    height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Aquí es donde le indicas que se alinee al inicio de la sección */
+    scroll-snap-stop: always; /* Evita que el usuario se pase de largo varias secciones con un solo scroll */
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    /* Esto desplaza el punto de anclaje hacia arriba de forma invisible */
+    position: relative;
+    overflow: hidden; /* Esto evita que se asomen bordes de otras secciones */
+}
+
+#the-moment {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Esto centra el texto y empuja el verde fuera de vista */
+    background-color: #f4ece1; /* Tu color crema */
+}
+
+
+
+/* ─────────────────────────────────────────
+   WIDGET: CIRCULITO DE PROGRESO
+───────────────────────────────────────── */
+.maku-progress-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.maku-progress-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.maku-progress-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 4;
+}
+
+.maku-progress-bar {
+    fill: none;
+    stroke: var(--sand);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+/* ─────────────────────────────────────────
+   NAVEGACIÓN LATERAL (DOTS)
+───────────────────────────────────────── */
+.side-dots-nav {
+    position: fixed;
+    right: 40px; /* Movido a la derecha para no chocar con el texto vertical */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+.dot-item {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--sand);
+    transition: var(--transition);
+    position: relative;
+}
+
+.dot-item.is-active {
+    background: var(--sand);
+    transform: scale(1.6);
+}
+
+.dot-label {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--white);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.dot-item:hover .dot-label { opacity: 1; }
+
+/* ─────────────────────────────────────────
+   HERO / HEADER (LAYOUT CORREGIDO)
+───────────────────────────────────────── */
+.hero-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background-media-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 40%, transparent 60%, var(--black) 100%);
+    z-index: 6;
+}
+
+.hero-text-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    z-index: 10;
+}
+
+/* Texto vertical corregido con writing-mode */
+.maku-title-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Playfair Display', serif;
+    height: fit-content;
+}
+
+.maku-title-vertical .char {
+    font-size: clamp(4rem, 10vw, 8.5rem);
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.right-content-inner {
+    text-align: right;
+    max-width: 500px;
+}
+
+.premium-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.6em;
+    color: var(--sand);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.main-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: italic;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    color: var(--white);
+}
+
+/* ─────────────────────────────────────────
+   BOTONES PREMIUM
+───────────────────────────────────────── */
+.cta-group {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cta-minimal-pill {
+    background: var(--white);
+    color: var(--black);
+    padding: 18px 45px;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    border: 1px solid var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cta-minimal-pill:hover {
+    background: transparent;
+    color: var(--white);
+    letter-spacing: 0.3em;
+}
+
+.cta-link-sophisticated {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    position: relative;
+    padding-bottom: 8px;
+    opacity: 0.8;
+}
+
+.cta-link-sophisticated::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 1px;
+    background: var(--sand);
+    transition: width 0.4s var(--ease-out);
+}
+
+.cta-link-sophisticated:hover::after { width: 100%; }
+
+/* ─────────────────────────────────────────
+   SECCIONES CON CAMBIOS DE COLOR
+───────────────────────────────────────── */
+
+/* 1. SECCIÓN: EL MOMENTO (CREMA & NEGRO) */
+.maku-section-sensorial {
+    padding: 180px 10%;
+    background: var(--cream);
+    color: var(--black);
+}
+
+.maku-badge {
+    color: var(--sand);
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.maku-big-statement {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    margin-bottom: 80px;
+}
+
+.maku-big-statement span { color: var(--sand); font-style: italic; }
+
+.maku-text-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* 2. SECCIÓN: EXPERIENCIA (SLATE / GRIS AZULADO) */
+.maku-section-experience {
+    padding: 140px 10%;
+    background: var(--slate);
+}
+
+.maku-experience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.maku-exp-card {
+    background: rgba(255,255,255,0.05);
+    padding: 60px 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition);
+}
+
+.maku-exp-card:hover {
+    background: var(--mustard);
+    transform: translateY(-10px);
+}
+
+.maku-exp-card:hover * { color: var(--black); }
+
+/* 3. SECCIÓN: INGREDIENTES (NEGRO & MOSTAZA) */
+.maku-section-ingredients {
+    padding: 150px 10%;
+    background: var(--black);
+}
+
+.maku-circle-media {
+    width: 450px;
+    height: 450px;
+    border: 1px solid var(--mustard);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px rgba(233, 196, 106, 0.1);
+}
+
+.maku-ing-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--mustard);
+    margin-bottom: 10px;
+}
+
+/* 4. SECCIÓN: LIFECYCLE (ARENA & NEGRO) */
+.maku-section-lifecycle {
+    padding: 120px 10%;
+    background: var(--sand);
+    color: var(--black);
+}
+
+.maku-timeline-step {
+    border-top: 2px solid var(--black);
+    padding-top: 40px;
+}
+
+.maku-time {
+    background: var(--black);
+    color: var(--white);
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50px;
+}
+
+/* ─────────────────────────────────────────
+   7. SECCIÓN FINAL (PRODUCTO)
+───────────────────────────────────────── */
+.maku-section-final {
+    padding: 150px 10%;
+    background: var(--black);
+}
+
+.maku-final-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.maku-main-jar {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.maku-btn-wa {
+    display: inline-block;
+    background: var(--white);
+    color: var(--black);
+    padding: 22px 50px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    border: 1px solid var(--white);
+}
+
+.maku-btn-wa:hover {
+    background: transparent;
+    color: var(--white);
+}
+
+.maku-new { font-size: 2.5rem; color: var(--sand); font-weight: 700; display: block; margin-top: 10px;}
+
+
+/* ─────────────────────────────────────────
+   HERO TEXT LAYER - CONTENEDOR PRINCIPAL
+───────────────────────────────────────── */
+.hero-text-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center; /* Centra verticalmente todo el bloque */
+    justify-content: center;
+    padding: 0 8%;
+    z-index: 20;
+    pointer-events: none; /* Permite clicks solo en los hijos */
+}
+
+.hero-content-split {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-content-split.is-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   LADO IZQUIERDO: MAKU VERTICAL
+───────────────────────────────────────── */
+.hero-side.left-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.maku-title-vertical {
+    /* El truco del Senior: Writing mode para que el navegador respete el espacio */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); 
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.maku-title-vertical .char {
+    font-size: clamp(6rem, 15vw, 12rem); /* Más grande, como en tu imagen */
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.8;
+    color: var(--white);
+    text-transform: uppercase;
+    display: block;
+}
+
+/* ─────────────────────────────────────────
+   LADO DERECHO: TEXTOS Y BOTONES
+───────────────────────────────────────── */
+.hero-side.right-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.right-content-inner {
+    text-align: right;
+    max-width: 550px;
+}
+
+.pre-title {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: var(--accent); /* Tu color #d4a373 */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.main-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-style: italic;
+    line-height: 1.1;
+    color: var(--white);
+    display: block;
+    margin-bottom: 50px;
+}
+
+/* ─────────────────────────────────────────
+   GRUPO DE BOTONES (CTAs)
+───────────────────────────────────────── */
+.cta-group {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cta-minimal-pill {
+    background: var(--white);
+    color: var(--black);
+    padding: 20px 45px;
+    border: 1px solid var(--white);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out);
+}
+
+.cta-minimal-pill:hover {
+    background: transparent;
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.cta-link-sophisticated {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.cta-link-sophisticated:hover {
+    opacity: 1;
+}
+
+.link-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.4s var(--ease-out);
+}
+
+.cta-link-sophisticated:hover .link-line {
+    width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL HINT (MOUSE)
+───────────────────────────────────────── */
+.scroll-hint-minimal {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: opacity 0.8s ease;
+}
+
+.scroll-hint-minimal span {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mouse-icon {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-wheel 2s infinite;
+}
+
+@keyframes scroll-wheel {
+    0% { opacity: 0; transform: translate(-50%, 0); }
+    30% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, 15px); }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVO
+───────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .hero-content-split {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-side.left-side, .hero-side.right-side {
+        justify-content: center;
+    }
+    .maku-title-vertical {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+        margin-bottom: 20px;
+    }
+    .right-content-inner {
+        text-align: center;
+    }
+    .cta-group {
+        justify-content: center;
+    }
+}
+
+
+/* ─────────────────────────────────────────
+   LADO DERECHO: REFINAMIENTO TIPOGRÁFICO
+───────────────────────────────────────── */
+.hero-side.right-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2%; /* Evita que pegue al borde del viewport */
+}
+
+.right-content-inner {
+    text-align: right;
+    max-width: 400px; /* Reducido para mayor compacidad */
+}
+
+.pre-title {
+    display: block;
+    font-size: 0.65rem; /* Más pequeño y elegante */
+    letter-spacing: 0.8em; /* Aumentamos el tracking para airear */
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px; /* Espacio sutil */
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.main-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem); /* Escala más contenida */
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--white);
+    display: block;
+    margin-bottom: 35px; /* Separación balanceada */
+    letter-spacing: -0.01em;
+}
+
+/* ─────────────────────────────────────────
+   GRUPO DE BOTONES (CTAs REESTRUCTURADOS)
+───────────────────────────────────────── */
+.cta-group {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cta-minimal-pill {
+    background: var(--white);
+    color: #111;
+    padding: 12px 32px; /* Mucho más fino y estilizado */
+    border: 1px solid var(--white);
+    text-transform: uppercase;
+    font-size: 0.65rem; /* Texto pequeño = lujo */
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    border-radius: 2px; /* Casi recto, muy editorial */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta-minimal-pill:hover {
+    background: transparent;
+    color: var(--white);
+    letter-spacing: 0.25em; /* Micro-interacción elegante */
+}
+
+.cta-link-sophisticated {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    opacity: 0.6; /* Menos peso visual que el principal */
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.cta-link-sophisticated:hover {
+    opacity: 1;
+}
+
+.link-line {
+    width: 25px; /* Línea más corta inicial */
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.4s ease;
+}
+
+.cta-link-sophisticated:hover .link-line {
+    width: 60px; /* Expansión suave */
+}
+
+/* ─────────────────────────────────────────
+   AJUSTE AL TÍTULO IZQUIERDO (MAKU)
+───────────────────────────────────────── */
+.maku-title-vertical .char {
+    font-size: clamp(5rem, 12vw, 10rem); /* Un poco menos invasivo */
+    font-weight: 300; /* Peso ligero para máxima elegancia */
+    opacity: 0.95;
+    /* Sombras muy suaves para no "ensuciar" el fondo */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ─────────────────────────────────────────
+   SCROLL HINT (MÁS DISCRETO)
+───────────────────────────────────────── */
+.scroll-hint-minimal span {
+    font-size: 0.55rem;
+    letter-spacing: 0.5em;
+    opacity: 0.4;
+}
+
+.mouse-icon {
+    width: 20px;
+    height: 32px;
+    opacity: 0.5;
+}
+
+/* ─────────────────────────────────────────
+   REFINAMIENTO DE "PREMIUM GRANOLA"
+───────────────────────────────────────── */
+.pre-title {
+    display: block;
+    /* Un poco más grande pero con mucho aire */
+    font-size: 0.85rem; 
+    letter-spacing: 0.9em; /* Tracking extremo para lujo */
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 700;
+    /* Un ligero text-shadow para que resalte sobre el fondo oscuro */
+    text-shadow: 0 2px 10px rgba(212, 163, 115, 0.3);
+    opacity: 1; /* Aseguramos visibilidad total */
+}
+
+/* ─────────────────────────────────────────
+   SCROLL HINT: MÁS BRILLO Y CLARIDAD
+───────────────────────────────────────── */
+.scroll-hint-minimal {
+    bottom: 40px;
+    opacity: 1;
+}
+
+.scroll-hint-minimal span {
+    font-size: 0.7rem; /* Un poco más legible */
+    letter-spacing: 0.6em;
+    color: #ffffff; /* Blanco puro para mayor brillo */
+    font-weight: 500;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow sutil */
+    margin-bottom: 10px;
+}
+
+.mouse-icon {
+    width: 22px;
+    height: 36px;
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Borde más sólido */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Brillo externo */
+}
+
+.wheel {
+    background: #ffffff; /* Ruedita blanca para que destaque */
+    box-shadow: 0 0 8px #ffffff; /* Glow en la ruedita */
+    width: 3px;
+    height: 7px;
+}
+
+
+html.no-snap {
+    scroll-snap-type: none !important;
+}
+
+/* ─────────────────────────────────────────
+   ANIMACIÓN DE BRILLO (Opcional para el texto)
+───────────────────────────────────────── */
+@keyframes soft-glow {
+    0%, 100% { opacity: 0.8; text-shadow: 0 0 5px rgba(255,255,255,0.2); }
+    50% { opacity: 1; text-shadow: 0 0 15px rgba(255,255,255,0.6); }
+}
+
+.scroll-hint-minimal span {
+    animation: soft-glow 3s infinite ease-in-out;
+}
+/* ─────────────────────────────────────────
+   RESPONSIVO
+───────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .hero-text-layer {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .maku-title-vertical {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+        margin-bottom: 40px;
+    }
+    .right-content-inner { text-align: center; }
+    .cta-group { justify-content: center; }
+    .maku-experience-grid { grid-template-columns: 1fr 1fr; }
+    .maku-final-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .maku-experience-grid { grid-template-columns: 1fr; }
+    .maku-text-columns { grid-template-columns: 1fr; gap: 40px; }
+    .maku-circle-media { width: 300px; height: 300px; }
+}
