@@ -1,0 +1,120 @@
+/* ─────────────────────────────────────────
+   FOOTER: MAKU COMPACT EDITION
+───────────────────────────────────────── */
+
+footer.maku-footer {
+    background-color: #F4F1DE !important; 
+    padding: 40px 10% 20px !important; /* Reducido a la mitad */
+    color: #0B0B0B !important;
+    border-top: 1px solid rgba(11, 11, 11, 0.05) !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+.maku-footer-container {
+    max-width: 1200px; /* Más estrecho para que no se pierda en pantallas gigantes */
+    margin: 0 auto;
+}
+
+.maku-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px; /* Reducido de 60px a 30px */
+    gap: 20px;
+}
+
+.maku-footer-brand {
+    max-width: 300px;
+}
+
+.maku-footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem !important; /* Más pequeño */
+    letter-spacing: 2px;
+    margin-bottom: 10px !important;
+    color: #0B0B0B !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+}
+
+.maku-footer-logo span {
+    font-weight: 400;
+    color: #D4A373 !important;
+}
+
+.maku-footer-brand p {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    color: rgba(11, 11, 11, 0.6) !important;
+    margin: 0 !important;
+}
+
+/* Links compactos */
+.maku-footer-links {
+    display: flex;
+    gap: 60px; /* Menos espacio entre columnas */
+}
+
+.maku-footer-col h4 {
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px !important; /* Reducido */
+    color: #D4A373 !important;
+    font-weight: 700 !important;
+}
+
+.maku-link-group a {
+    display: block !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    color: #0B0B0B !important;
+    margin-bottom: 8px !important; /* Más apretado */
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.maku-link-group a:hover {
+    opacity: 1;
+    color: #D4A373 !important;
+}
+
+/* Línea inferior compacta */
+.maku-footer-bottom {
+    border-top: 1px solid rgba(11, 11, 11, 0.08) !important;
+    padding-top: 20px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem !important;
+    color: rgba(11, 11, 11, 0.4) !important;
+}
+
+.maku-tagline {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #D4A373 !important;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+    footer.maku-footer {
+        padding: 40px 5% 20px !important;
+        text-align: center !important;
+    }
+    .maku-footer-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .maku-footer-links {
+        gap: 40px;
+    }
+    .maku-footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

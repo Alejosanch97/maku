@@ -1,0 +1,561 @@
+/* Paleta Maku Premium */
+:root {
+    --maku-cream: #FDFBF7; /* Fondo crema suave */
+    --maku-gold: #A67C52;  /* Dorado/Bronce artesanal */
+    --maku-dark: #2D2926;  /* Texto profundo */
+    --maku-white: #FFFFFF;
+}
+
+.maku-store-premium {
+    background-color: var(--maku-cream);
+    color: var(--maku-dark);
+    min-height: 100vh;
+    padding: 140px 5% 60px;
+    position: relative;
+}
+
+/* Botón Volver */
+.back-nav-button {
+    position: absolute; top: 40px; left: 5%;
+    background: none; border: none;
+    color: var(--maku-dark); font-family: 'Inter', sans-serif;
+    text-transform: uppercase; letter-spacing: 2px; font-size: 12px;
+    cursor: pointer; display: flex; align-items: center; gap: 10px;
+    transition: 0.3s; z-index: 100;
+}
+.back-nav-button:hover { color: var(--maku-gold); transform: translateX(-5px); }
+
+/* Header */
+.store-header { text-align: center; margin-bottom: 80px; }
+.store-pretitle { color: var(--maku-gold); letter-spacing: 4px; font-size: 12px; text-transform: uppercase; }
+.store-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 85px); color: var(--maku-dark); font-weight: 300; }
+.store-title span { font-style: italic; font-weight: 600; }
+.store-tagline { color: #777; margin-top: 10px; font-style: italic; }
+
+/* Grid de Productos */
+.product-grid-premium {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px; max-width: 1300px; margin: 0 auto;
+}
+
+.product-card-glass {
+    background: var(--maku-white);
+    border-radius: 2px;
+    padding: 15px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.product-card-glass:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(166, 124, 82, 0.15);
+}
+
+.product-image-wrapper {
+    height: 400px; position: relative; overflow: hidden; background: #f0f0f0;
+}
+
+.product-image-wrapper img {
+    width: 100%; height: 100%; object-fit: cover; transition: 1.2s;
+}
+
+.product-card-glass:hover .product-image-wrapper img { transform: scale(1.1); }
+
+.product-badge {
+    position: absolute; top: 15px; right: 15px; background: var(--maku-gold);
+    color: white; padding: 5px 15px; font-size: 10px; text-transform: uppercase;
+    border-radius: 30px; z-index: 5;
+}
+
+.btn-add-quick {
+    width: 100%; background: var(--maku-dark); color: white;
+    border: none; padding: 15px; font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; cursor: pointer; transition: 0.4s;
+}
+.btn-add-quick:hover { background: var(--maku-gold); }
+
+.product-info-premium { padding: 20px 5px; }
+.product-cat { color: var(--maku-gold); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+.product-info-premium h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; margin: 10px 0; }
+.current-price { font-size: 22px; font-weight: 600; color: var(--maku-dark); }
+
+/* --- LOADER ESTILIZADO --- */
+.maku-loader-overlay {
+    position: fixed; inset: 0; background: var(--maku-cream);
+    display: flex; align-items: center; justify-content: center; z-index: 9999;
+}
+.loader-content { text-align: center; }
+.maku-spinning-circle {
+    width: 80px; height: 80px; border: 2px solid rgba(166, 124, 82, 0.1);
+    border-top: 2px solid var(--maku-gold); border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+    margin: 0 auto 30px;
+}
+.loader-text { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; }
+.loader-text span { animation: blink 1.5s infinite; }
+.loader-sub { color: var(--maku-gold); letter-spacing: 3px; text-transform: uppercase; font-size: 10px; margin-top: 10px; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+/* Carrito Lateral */
+.maku-cart-panel {
+    position: fixed; right: -450px; top: 0; width: 400px; height: 100vh;
+    background: white; z-index: 5000; transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.1);
+}
+.maku-cart-panel.is-open { right: 0; }
+.cart-inner { display: flex; flex-direction: column; height: 100%; padding: 50px 40px; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.close-cart-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
+
+.cart-item-row { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #eee; }
+.item-name { font-weight: 600; font-size: 15px; }
+.item-qty { font-size: 12px; color: #888; display: block; }
+.item-price { font-weight: 700; color: var(--maku-gold); }
+
+.btn-whatsapp-checkout {
+    background: #25D366; color: white; width: 100%; padding: 20px;
+    border: none; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 25px;
+}
+
+.cart-reopen-btn {
+    position: fixed; bottom: 40px; right: 40px; width: 70px; height: 70px;
+    background: var(--maku-dark); color: white; border-radius: 50%; border: none;
+    font-size: 25px; cursor: pointer; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.cart-badge-count {
+    position: absolute; top: 0; right: 0; background: var(--maku-gold);
+    width: 25px; height: 25px; border-radius: 50%; font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* ─────────────────────────────────────────
+   NUEVOS ESTILOS PARA FUNCIONALIDAD DE CARRITO
+───────────────────────────────────────── */
+
+/* Controles de Cantidad (+ / -) */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    background: #f9f9f9;
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.qty-controls button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    color: var(--maku-dark);
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 2px;
+}
+
+.qty-controls button:hover {
+    background: var(--maku-dark);
+    color: white;
+    border-color: var(--maku-dark);
+}
+
+.qty-controls button:active {
+    transform: scale(0.9);
+}
+
+.item-qty {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Botón Eliminar */
+.cart-item-row {
+    position: relative;
+    padding: 25px 0;
+}
+
+.cart-item-row button[onClick*="removeFromCart"] {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.cart-item-row button[onClick*="removeFromCart"]:hover {
+    color: #000 !important;
+    text-decoration: underline;
+}
+
+/* Precios y Descuentos */
+.old-price {
+    color: #999;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Botón Añadir Móvil (Siempre visible en táctil) */
+@media (max-width: 768px) {
+    .product-overlay-action {
+        opacity: 1 !important; /* Hacemos que el botón sea siempre visible en móviles */
+        position: relative !important;
+        margin-top: 15px;
+    }
+    
+    .btn-add-quick {
+        border-radius: 4px;
+        font-weight: 600;
+    }
+
+    .product-image-wrapper {
+        height: auto;
+        aspect-ratio: 1/1; /* Mantiene las imágenes cuadradas en móvil */
+    }
+}
+
+/* Ajustes de tipografía para el Total */
+.total-amount {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+/* Botón WhatsApp Estilizado */
+.btn-whatsapp-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-checkout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    background: #20ba5a;
+}
+
+/* Scrollbar personalizada para el carrito */
+.cart-items-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cart-items-list::-webkit-scrollbar-track {
+    background: var(--maku-cream);
+}
+
+.cart-items-list::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+/* Asegura que el contenedor del botón sea visible al pasar el mouse */
+.product-overlay-action {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(45, 41, 38, 0.8); /* Fondo oscuro semitransparente */
+    padding: 15px;
+    transform: translateY(100%);
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    justify-content: center;
+}
+
+.product-card-glass:hover .product-overlay-action {
+    transform: translateY(0);
+}
+
+/* Botón de acceso al carrito junto al botón de volver */
+.cart-trigger-nav {
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    background: var(--maku-dark);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 2px;
+}
+
+.cart-trigger-nav .count {
+    background: var(--maku-gold);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Fix para el z-index del carrito */
+.maku-cart-panel {
+    z-index: 10000 !important; /* Más alto que el loader */
+}
+
+/* ─────────────────────────────────────────
+   MAKU STORE PREMIUM - RESPONSIVE SYSTEM
+───────────────────────────────────────── */
+
+/* 1. TABLETS & IPADS (Hasta 1024px) */
+@media (max-width: 1024px) {
+    .maku-store-premium {
+        padding: 120px 4% 60px;
+    }
+
+    .product-grid-premium {
+        grid-template-columns: repeat(2, 1fr); /* Forzamos 2 columnas para que luzca ordenado */
+        gap: 25px;
+    }
+
+    .product-image-wrapper {
+        height: 350px; /* Reducimos un poco la altura de imagen */
+    }
+
+    .maku-cart-panel {
+        width: 350px; /* Carrito un poco más estrecho */
+    }
+}
+
+/* 2. MÓVILES (Hasta 768px) */
+@media (max-width: 768px) {
+    .maku-store-premium {
+        padding: 100px 6% 40px;
+    }
+
+    /* Ajuste de Header */
+    .store-header {
+        margin-bottom: 50px;
+    }
+    .store-title {
+        font-size: 3.2rem !important; /* Título más manejable */
+        line-height: 1.1;
+    }
+    .store-tagline {
+        font-size: 0.9rem;
+        padding: 0 10%;
+    }
+
+    /* Grid a 1 columna para máximo impacto visual */
+    .product-grid-premium {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .product-card-glass {
+        padding: 10px; /* Menos padding interno para ganar espacio */
+    }
+
+    .product-image-wrapper {
+        height: 420px; /* Imagen grande para que el producto sea el héroe */
+    }
+
+    /* CARRITO LATERAL (Full Width en móvil) */
+    .maku-cart-panel {
+        width: 100%;
+        right: -100%; /* Sale de pantalla completa */
+    }
+    .cart-inner {
+        padding: 40px 25px;
+    }
+
+    /* Botón flotante de carrito más pequeño */
+    .cart-reopen-btn {
+        width: 60px;
+        height: 60px;
+        bottom: 30px;
+        right: 25px;
+        font-size: 20px;
+    }
+
+    /* Botón volver más compacto */
+    .back-nav-button {
+        top: 30px;
+        font-size: 10px;
+    }
+}
+
+/* 3. MÓVILES PEQUEÑOS (Hasta 480px) */
+@media (max-width: 480px) {
+    .store-title {
+        font-size: 2.8rem !important;
+    }
+
+    .product-image-wrapper {
+        height: 320px; /* Equilibrio para pantallas pequeñas */
+    }
+
+    .product-info-premium h3 {
+        font-size: 22px;
+    }
+
+    .current-price {
+        font-size: 18px;
+    }
+
+    /* Loader responsive */
+    .loader-text {
+        font-size: 24px;
+    }
+    .maku-spinning-circle {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* 4. OPTIMIZACIÓN DE INTERACCIÓN TOUCH */
+@media (pointer: coarse) {
+    /* Desactivamos el efecto translateY en hover para evitar saltos en touch */
+    .product-card-glass:hover {
+        transform: none;
+    }
+    
+    /* El botón de añadir siempre visible o con opacidad alta en móvil */
+    .btn-add-quick {
+        padding: 18px; /* Target táctil más grande */
+    }
+}
+
+/* ─────────────────────────────────────────
+   OPTIMIZACIÓN DE CARRITO Y RESUMEN (MOBILE & TABLET)
+───────────────────────────────────────── */
+
+/* 1. COMPORTAMIENTO GENERAL DEL PANEL EN MÓVIL */
+@media (max-width: 768px) {
+    .maku-cart-panel {
+        width: 100%; /* Pantalla completa */
+        right: -100%; 
+    }
+
+    .cart-inner {
+        padding: 30px 20px; /* Menos aire lateral */
+    }
+
+    .cart-header h4 {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+
+    /* Filas de productos más compactas pero legibles */
+    .cart-item-row {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .item-details {
+        flex: 1;
+    }
+
+    .item-name {
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+
+    /* Controles de cantidad GIGANTES para Touch */
+    .qty-controls {
+        gap: 15px;
+        padding: 6px 12px;
+    }
+
+    .qty-controls button {
+        width: 35px; /* Área táctil más grande */
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .item-qty {
+        font-size: 16px;
+    }
+
+    /* Sección de precios a la derecha */
+    .item-price {
+        font-size: 16px;
+        min-width: 80px;
+        text-align: right;
+    }
+
+    /* Resumen de Total (Footer del carrito) */
+    .cart-footer {
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+
+    .total-row {
+        padding: 15px 0 !important;
+    }
+
+    .total-row span:first-child {
+        font-size: 10px; /* "TOTAL ESTIMADO" pequeño */
+    }
+
+    .total-amount {
+        font-size: 24px !important; /* El precio debe resaltar */
+    }
+
+    .btn-whatsapp-checkout {
+        padding: 18px;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+}
+
+/* 2. AJUSTES PARA TABLETS (iPad/Android Tabs) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .maku-cart-panel {
+        width: 450px; /* Un poco más ancho que en desktop para comodidad */
+    }
+
+    .cart-inner {
+        padding: 40px;
+    }
+
+    .item-name {
+        font-size: 16px;
+    }
+}
+
+/* 3. BOTÓN DE NAVEGACIÓN (HEADER) RESPONSIVE */
+@media (max-width: 480px) {
+    .cart-trigger-nav {
+        top: 25px;
+        right: 4%;
+        padding: 8px 12px;
+        font-size: 9px;
+    }
+
+    .back-nav-button {
+        top: 25px;
+        left: 4%;
+        font-size: 9px;
+    }
+
+    /* Ocultar texto del botón de volver si hay poco espacio */
+    .back-nav-button span:not(.back-icon) {
+        display: none;
+    }
+}
+
+/* 4. PREVENCIÓN DE SCROLL EN EL FONDO (MODAL MODE) */
+/* Agrega esta clase vía JS cuando abras el carrito: document.body.classList.add('no-scroll') */
+body.no-scroll {
+    overflow: hidden;
+}

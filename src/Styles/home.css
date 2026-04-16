@@ -833,6 +833,1304 @@ section {
 html.no-snap {
     scroll-snap-type: none !important;
 }
+/* ─────────────────────────────────────────
+   SECCIÓN 2: ALQUIMIA (INGREDIENTES)
+───────────────────────────────────────── */
+/* ─────────────────────────────────────────
+   SECCIÓN 2: EXPERIENCIA (EDITORIAL STYLE)
+───────────────────────────────────────── */
+
+.maku-section-experience {
+    padding: 120px 8%;
+    background-color: #fcfaf7; /* Fondo crema muy sutil */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.maku-section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.maku-title-md {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: #1a1a1a;
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+.maku-title-md span {
+    color: #2d4a3e; /* Tu verde bosque elegante */
+    font-style: italic;
+}
+
+/* Grid de Tarjetas */
+.maku-experience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.maku-exp-card {
+    background: #ffffff;
+    padding: 50px 35px;
+    border-radius: 4px; /* Estilo editorial, casi recto */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+/* El efecto hover con tu color verde */
+.maku-exp-card:hover {
+    transform: translateY(-12px);
+    border-color: #2d4a3e;
+    box-shadow: 0 20px 40px rgba(45, 74, 62, 0.1);
+}
+
+.maku-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.maku-card-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    color: #2d4a3e; /* Acento verde */
+    background: rgba(45, 74, 62, 0.08);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.maku-card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #d1d1d1;
+    transition: color 0.4s ease;
+}
+
+.maku-exp-card:hover .maku-card-number {
+    color: #2d4a3e;
+    opacity: 0.3;
+}
+
+.maku-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    transition: transform 0.4s ease;
+}
+
+.maku-exp-card:hover .maku-card-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.maku-card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.maku-card-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.maku-card-footer {
+    margin-top: auto;
+    padding-top: 30px;
+}
+
+.maku-footer-line {
+    width: 30px;
+    height: 2px;
+    background: #e0e0e0;
+    transition: width 0.5s ease, background 0.5s ease;
+}
+
+.maku-exp-card:hover .maku-footer-line {
+    width: 100%;
+    background: #2d4a3e;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1200px) {
+    .maku-experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .maku-experience-grid {
+        grid-template-columns: 1fr;
+    }
+    .maku-section-experience {
+        padding: 80px 5%;
+    }
+}
+
+/* ─────────────────────────────────────────
+   SECCIÓN 2: EXPERIENCIA (VERDE PREMIUM)
+───────────────────────────────────────── */
+
+.maku-section-experience {
+    padding: 140px 10% !important;
+    /* Usamos el verde de tu paleta slate o un verde bosque profundo */
+    background-color: #4a5759 !important; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Ajustamos el encabezado para que resalte sobre el verde */
+.maku-section-header .maku-title-md {
+    color: var(--white) !important; /* Blanco para el título principal */
+}
+
+.maku-section-header .maku-title-md span {
+    color: var(--mustard) !important; /* Mostaza/Dorado para el énfasis */
+    font-style: italic;
+}
+
+.maku-badge-gold {
+    color: var(--mustard) !important;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+}
+
+/* Tarjetas */
+.maku-exp-card {
+    background: rgba(255, 255, 255, 0.05) !important; /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto vidrio sutil */
+    padding: 50px 35px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: var(--transition);
+}
+
+.maku-exp-card:hover {
+    background: var(--mustard) !important; /* Al pasar el mouse se vuelve dorada */
+    transform: translateY(-10px);
+}
+
+/* Cambiar color de textos dentro de la tarjeta al hacer hover */
+.maku-exp-card:hover h3, 
+.maku-exp-card:hover p, 
+.maku-exp-card:hover .maku-card-number,
+.maku-exp-card:hover .maku-card-tag {
+    color: var(--black) !important;
+}
+
+.maku-card-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--mustard);
+    background: rgba(233, 196, 106, 0.1);
+    padding: 4px 12px;
+}
+
+.maku-card-number {
+    color: rgba(255, 255, 255, 0.3) !important;
+    font-family: 'Playfair Display', serif;
+}
+
+.maku-card-content h3 {
+    color: var(--white) !important;
+    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+}
+
+.maku-card-content p {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.maku-footer-line {
+    width: 30px;
+    height: 1px;
+    background: var(--mustard) !important;
+    margin-top: 20px;
+}
+/* ─────────────────────────────────────────
+   SECCIÓN 3: ALQUIMIA (CORREGIDA - DARK)
+───────────────────────────────────────── */
+.maku-ingredients-section {
+    /* CAMBIO DE BACKGROUND: Usamos el Negro de la paleta */
+    background-color: var(--black) !important; 
+    
+    height: 100vh !important; /* Estrictamente igual a las demás */
+    width: 100%;
+    padding: 0 10% !important; /* Más aire a los lados */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    
+    /* CORRECCIÓN DE COLOR BASE: Todo el texto heredará Crema por defecto */
+    color: var(--cream) !important; 
+}
+
+/* Header */
+.maku-section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.maku-badge-gold {
+    /* CORRECCIÓN: Mostaza vibrante sobre negro */
+    color: var(--mustard) !important; 
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.maku-big-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    
+    /* CORRECCIÓN: Crema para legibilidad */
+    color: var(--cream) !important; 
+}
+
+.maku-big-title span {
+    /* CORRECCIÓN: Dorado/Mostaza para el énfasis */
+    color: var(--mustard) !important; 
+    font-style: italic;
+}
+
+/* Grid Ajustado */
+.maku-alchemy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr; /* Espacio para la imagen central */
+    align-items: center;
+    gap: 50px;
+    max-width: 1600px;
+    margin: 30px auto 0;
+    width: 100%;
+}
+
+.maku-alchemy-col {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Aire entre ingredientes */
+}
+
+.maku-ingredient-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: var(--transition);
+}
+
+/* Efecto hover premium */
+.maku-ingredient-card:hover {
+    transform: translateY(-5px);
+}
+
+.maku-ing-info {
+    max-width: 250px; /* Más aire para el texto */
+}
+
+.maku-ing-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    
+    /* CORRECCIÓN: Mostaza para títulos de ingredientes */
+    color: var(--mustard) !important; 
+}
+
+.maku-ing-info p {
+    font-size: 0.95rem;
+    
+    /* CORRECCIÓN: Crema con ligera opacidad para no competir */
+    color: rgba(244, 241, 222, 0.8) !important; 
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Círculos de Imagen Refinados */
+.maku-ing-img-box {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    
+    /* CORRECCIÓN: Borde mostaza sutil sobre negro */
+    border: 2px solid rgba(233, 196, 106, 0.3) !important; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.maku-ingredient-card:hover .maku-ing-img-box {
+    border-color: var(--mustard) !important;
+    transform: scale(1.05);
+}
+
+.maku-ing-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Centro: Producto Estrella */
+.maku-alchemy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.maku-hero-product {
+    position: relative;
+    text-align: center;
+}
+
+.maku-final-jar {
+    width: 100%;
+    max-width: 480px; /* Tamaño impacto */
+    border-radius: 20px;
+    
+    /* CORRECCIÓN: Sombra más dramática sobre negro */
+    box-shadow: 0 40px 80px rgba(0,0,0,0.8); 
+    animation: floatJar 5s infinite ease-in-out;
+}
+
+@keyframes floatJar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Botones de Servir Corregidos (Estilo Dark Gold) */
+.maku-serve-options {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.maku-serve-btn {
+    /* CORRECCIÓN: Botones oscuros con borde dorado */
+    background: transparent !important;
+    color: var(--cream) !important;
+    border: 1px solid rgba(233, 196, 106, 0.4) !important;
+    
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+}
+
+.maku-serve-btn:hover {
+    /* Inversión de color al hover */
+    background: var(--mustard) !important;
+    color: var(--black) !important;
+    border-color: var(--mustard) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(233, 196, 106, 0.2);
+}
+
+/* Ajustes de alineación derecha */
+.maku-ingredient-card.right-align {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+/* Badge flotante */
+.maku-floating-badge {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* CORRECCIÓN: Usamos Mostaza para que resalte como oro */
+    background: var(--mustard) !important; 
+    color: var(--black) !important; /* Texto negro para contraste */
+    
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .maku-alchemy-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        gap: 80px;
+        margin-top: 50px;
+    }
+    .maku-alchemy-center { order: -1; }
+    .maku-ingredient-card.right-align { text-align: left; flex-direction: row; }
+}
+/* ─────────────────────────────────────────
+   SECCIÓN 4: LIFECYCLE (ESTILO ALQUIMIA)
+───────────────────────────────────────── */
+.maku-section-lifecycle {
+    background-color: #D4A373 !important; /* Ocre Maku */
+    height: 100vh !important;
+    width: 100%;
+    /* Padding lateral al 10% para coincidir con Alquimia */
+    padding: 0 10% !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical perfecto */
+    position: relative;
+    overflow: hidden;
+}
+
+.maku-lifecycle-inner {
+    /* Max-width aumentado a 1600px igual que la grid de Alquimia */
+    max-width: 1600px; 
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Header: Alineación y espaciado idéntico a Sección 3 */
+.maku-timeline-header {
+    text-align: center;
+    margin-bottom: 30px; /* Consistente con el header de Alquimia */
+}
+
+.maku-timeline-badge {
+    color: #000 !important; 
+    text-transform: uppercase;
+    letter-spacing: 0.4em; /* Tracking premium */
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.maku-timeline-title {
+    font-family: 'Playfair Display', serif;
+    /* Mismo clamp exacto que .maku-big-title */
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    line-height: 1.1;
+    color: #000 !important;
+    margin: 0;
+}
+
+/* GRID: Estructura de 2 columnas con aire premium */
+.maku-timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Gap amplio para evitar que el texto se sienta apretado */
+    gap: 40px 80px; 
+    margin: 40px auto 0;
+    width: 100%;
+}
+
+.maku-timeline-card {
+    display: flex;
+    align-items: center; 
+    gap: 30px;
+    padding: 40px; /* Padding generoso como en las cards de Alquimia */
+    background: rgba(255, 255, 255, 0.12); /* Brillo sutil sobre el ocre */
+    backdrop-filter: blur(8px);
+    border-radius: 4px; /* Estilo editorial cuadrado */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.maku-timeline-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.maku-time-tag {
+    background: #000;
+    color: #D4A373;
+    padding: 12px 20px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+}
+
+.maku-card-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; /* Proporcional a los h3 de ingredientes */
+    color: #000;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.maku-card-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* Texto legible y elegante */
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .maku-section-lifecycle {
+        padding: 0 5% !important;
+    }
+    .maku-timeline-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .maku-section-lifecycle {
+        height: auto !important;
+        padding: 100px 5% !important;
+    }
+    .maku-timeline-grid {
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+    }
+    .maku-timeline-card {
+        padding: 30px;
+    }
+}
+/* ─────────────────────────────────────────
+   SECCIÓN 5: TESTIMONIALS (ESTILO ALQUIMIA)
+───────────────────────────────────────── */
+.maku-section-testimonials {
+    background-color: #FDFCF9 !important; /* Crema */
+    height: 100vh !important;
+    width: 100%;
+    /* Padding lateral al 10% igual que Sección 3 */
+    padding: 0 10% !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical perfecto */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header: Copiamos la estructura de la Sección 3 */
+.maku-wall-header {
+    text-align: center;
+    margin-bottom: 30px; /* Consistente con Sección 3 */
+}
+
+.maku-badge-dark {
+    /* Mismos estilos que .maku-badge-gold pero en negro */
+    color: #000 !important; 
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+.maku-testimonials-title {
+    font-family: 'Playfair Display', serif;
+    /* Mismo clamp que .maku-big-title */
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: #1A1A1A !important;
+}
+
+.maku-testimonials-title span {
+    color: #D4A373 !important; 
+    font-style: italic;
+}
+
+.maku-testimonials-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem; /* Un poco más grande para llenar */
+    color: #666;
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+/* Grid: Ajustado para llenar el espacio como en Alquimia */
+.maku-testimonials-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1600px;
+    margin: 40px auto 0;
+    width: 100%;
+    align-items: stretch; /* Para que las cajas tengan alturas similares */
+}
+
+.maku-t-card {
+    background: #FFFFFF;
+    padding: 40px; /* Padding generoso igual que las cards de ingredientes */
+    border-radius: 4px;
+    border: 1px solid rgba(212, 163, 115, 0.2); /* Borde ocre muy sutil */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.maku-t-card:hover {
+    transform: translateY(-5px);
+    border-color: #D4A373;
+}
+
+/* Tipografía de la Confesión */
+.maku-t-card p {
+    font-family: 'Montserrat', sans-serif;
+    /* Aumentamos para que se lea tan bien como en Alquimia */
+    font-size: 1.05rem; 
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.maku-t-card.featured {
+    background: #1A1A1A;
+    border: none;
+}
+
+.maku-t-card.featured p {
+    color: #F4F1DE;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.maku-t-rating {
+    color: #D4A373;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.maku-t-author {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .maku-testimonials-masonry {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .maku-section-testimonials {
+        padding: 0 5% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .maku-testimonials-masonry {
+        grid-template-columns: 1fr;
+    }
+    .maku-section-testimonials {
+        height: auto !important;
+        padding: 100px 5% !important;
+    }
+}
+
+/* ─────────────────────────────────────────
+   SECCIÓN FINAL: DARK PREMIUM (CORREGIDA)
+───────────────────────────────────────── */
+.maku-section-final {
+    /* Fondo negro puro para fundirse perfectamente */
+    background-color: #000000 !important; 
+    min-height: 100vh;
+    width: 100%;
+    /* Padding lateral al 10% para alinearse con Alquimia */
+    padding: 100px 10% !important; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.maku-final-container {
+    max-width: 1600px;
+    width: 100%;
+}
+
+.maku-final-grid {
+    display: grid;
+    /* 1.2fr para que la imagen tenga más protagonismo y espacio */
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 120px; 
+    align-items: center;
+}
+
+/* Área de Imagen - Con parche para tapar estrella */
+.maku-final-media {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- CORRECCIÓN: PARCHE PARA TAPAR ESTRELLA --- */
+/* Esto crea un cuadro negro absoluto sobre la estrella de stock */
+.maku-final-media::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;  /* Ancho suficiente para tapar */
+    height: 50px; /* Alto suficiente para tapar */
+    background-color: #000000; /* Negro puro */
+    z-index: 4; /* Por encima de las etiquetas flotantes */
+}
+/* --------------------------------------------- */
+
+.maku-main-jar {
+    width: 100%;
+    max-width: 520px;
+    z-index: 2;
+    /* Quitamos sombras pesadas si la imagen ya es oscura */
+    filter: drop-shadow(0 0 30px rgba(212, 163, 115, 0.1));
+    animation: floatJar 6s infinite ease-in-out;
+}
+
+/* Info de Venta - ESPACIADO MEJORADO */
+.maku-final-info {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Mucho aire entre bloques */
+}
+
+/* Corrección de Badge */
+.maku-badge-dark {
+    display: inline-block;
+    color: #D4A373 !important; /* Dorado en lugar de negro */
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.maku-title-final {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #F4F1DE !important; /* Crema para máximo contraste */
+    line-height: 1.1;
+    margin: 0;
+}
+
+.maku-title-final strong {
+    color: #D4A373 !important;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Bloque de Precio CORREGIDO */
+.maku-pricing-card {
+    border-left: 2px solid #D4A373;
+    padding-left: 30px;
+}
+
+.maku-investment-text {
+    font-size: 0.8rem;
+    color: #D4A373 !important; /* Dorado para que sea legible */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.maku-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.maku-price-old {
+    text-decoration: line-through;
+    color: rgba(244, 241, 222, 0.3) !important; /* Crema muy suave */
+    font-size: 1.5rem;
+}
+
+.maku-price-current {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #F4F1DE !important; /* Crema brillante */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Texto de Detalles (Lo subrayado que no se leía) */
+.maku-text-details {
+    font-size: 1.1rem;
+    color: rgba(244, 241, 222, 0.8) !important; /* Más opacidad para leer mejor */
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+.maku-text-details strong {
+    color: #D4A373 !important; /* Resaltamos el "Crunch" en dorado */
+}
+
+/* Botón WhatsApp Premium */
+.maku-btn-final-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: #D4A373 !important;
+    color: #000 !important;
+    padding: 22px 50px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.4s ease;
+    width: fit-content;
+    z-index: 5; /* Asegurar que esté por encima del parche */
+}
+
+.maku-btn-final-cta:hover {
+    background: #F4F1DE !important;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(212, 163, 115, 0.2);
+}
+
+/* --- CORRECCIÓN: LEGIBILIDAD DE ENVÍOS --- */
+.maku-delivery-info {
+    margin-top: 15px;
+    font-size: 0.85rem; /* Un poco más grande */
+    color: #F4F1DE !important; /* Crema directo, no gris */
+    opacity: 0.8; /* Opacidad alta para legibilidad premium */
+    font-weight: 300;
+}
+/* ---------------------------------------- */
+
+/* Etiquetas flotantes */
+.maku-floating-labels {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 3;
+}
+
+.maku-floating-labels span {
+    background: rgba(212, 163, 115, 0.2);
+    border: 1px solid #D4A373;
+    color: #D4A373;
+    padding: 8px 15px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile */
+@media (max-width: 1100px) {
+    .maku-final-grid {
+        grid-template-columns: 1fr;
+        gap: 80px;
+        text-align: center;
+    }
+    .maku-final-info { align-items: center; }
+    .maku-pricing-card { border-left: none; padding-left: 0; }
+    .maku-price-row { justify-content: center; }
+    .maku-section-final { height: auto !important; padding: 100px 5% !important; }
+    
+    /* Ajuste de parche en móvil */
+    .maku-final-media::after {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -20px;
+    }
+}
+
+/* ================================================= */
+/* NAVBAR PRINCIPAL (TRANSPARENTE)                  */
+/* ================================================= */
+.maku-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2100; /* Por encima de todo */
+    padding: 30px 50px;
+    background: transparent;
+    transition: all 0.4s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #F4F1DE;
+    cursor: pointer;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.nav-logo span {
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    z-index: 2101;
+    padding: 10px;
+}
+
+.menu-hamburger .line {
+    width: 28px;
+    height: 1.5px;
+    background-color: #F4F1DE;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-hamburger.is-open .line:nth-child(1) {
+    transform: translateY(4.5px) rotate(45deg);
+}
+
+.menu-hamburger.is-open .line:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/* ================================================= */
+/* OVERLAY DE MENÚ (ESTILO PIONEER)                 */
+/* ================================================= */
+.maku-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98); /* Negro profundo */
+    backdrop-filter: blur(15px);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: flex-start;
+    padding: 80px 10%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto; /* IMPORTANTE: Permite scroll si el menú es largo */
+}
+
+.maku-menu-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.menu-sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* CONTENEDOR DE ENLACES */
+.menu-chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio controlado entre filas */
+}
+
+.menu-chapters a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(35px, 6vw, 65px); /* Tamaño responsivo */
+    color: #F4F1DE;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    line-height: 1.1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    width: fit-content;
+}
+
+.is-visible .menu-chapters a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* NÚMEROS DE CAPÍTULO (01, 02...) */
+.chapter-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #D4A373; /* Tono bronce/dorado */
+    margin-right: 30px;
+    min-width: 35px;
+}
+
+/* EFECTO HOVER EN LINKS */
+.menu-chapters a:hover {
+    color: #D4A373;
+    padding-left: 15px;
+}
+
+/* LINK ESPECIAL E-COMMERCE */
+.menu-shop-link {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #F4F1DE !important;
+}
+
+.badge-new {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border: 1px solid #D4A373;
+    color: #D4A373;
+    padding: 2px 10px;
+    margin-left: 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+/* FOOTER DEL MENÚ */
+.menu-footer-info {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.social-links {
+    display: flex;
+    gap: 30px;
+}
+
+.social-links a {
+    color: #F4F1DE;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+    opacity: 0.6;
+}
+
+/* BLOQUEO DE SCROLL CUANDO EL MENÚ ESTÁ ABIERTO */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ================================================= */
+/* OVERLAY DE MENÚ (REDiseño PIONEER)               */
+/* ================================================= */
+.maku-menu-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: #0a0a0a; /* Fondo sólido oscuro como Pioneer */
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.maku-menu-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-sub-header {
+    position: absolute;
+    top: 15vh;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(244, 241, 222, 0.4);
+    text-transform: uppercase;
+}
+
+.menu-chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh; /* Espaciado basado en el alto de pantalla */
+    width: 100%;
+}
+
+.menu-item {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.is-visible .menu-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retraso en la aparición de cada item */
+.menu-item:nth-child(1) { transition-delay: 0.1s; }
+.menu-item:nth-child(2) { transition-delay: 0.2s; }
+.menu-item:nth-child(3) { transition-delay: 0.3s; }
+.menu-item:nth-child(4) { transition-delay: 0.4s; }
+
+.item-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #D4A373; /* Dorado Maku */
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.item-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 85px); /* Grande y elegante */
+    font-weight: 700;
+    color: #F4F1DE;
+    line-height: 0.9;
+    margin: 0;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.item-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(244, 241, 222, 0.5);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Efectos Hover */
+.menu-item:hover .item-title {
+    color: #D4A373;
+}
+
+.menu-item:hover {
+    transform: translateX(20px);
+}
+
+/* Estilo Especial Tienda */
+.shop-special .item-title {
+    -webkit-text-stroke: 1px #F4F1DE;
+    color: transparent; /* Título hueco para destacar */
+}
+
+.shop-special:hover .item-title {
+    color: #F4F1DE;
+    -webkit-text-stroke: 0px;
+}
+
+.badge-pronto {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    border: 1px solid #D4A373;
+    color: #D4A373;
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-left: 30px;
+    letter-spacing: 1px;
+}
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .maku-alchemy-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .maku-alchemy-center {
+        order: -1; /* La imagen central sube en móviles */
+    }
+
+    .maku-ingredient-card.right-align {
+        text-align: left;
+        flex-direction: row;
+    }
+    
+    .maku-ingredient-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+
 
 /* ─────────────────────────────────────────
    ANIMACIÓN DE BRILLO (Opcional para el texto)
@@ -870,3 +2168,311 @@ html.no-snap {
     .maku-text-columns { grid-template-columns: 1fr; gap: 40px; }
     .maku-circle-media { width: 300px; height: 300px; }
 }
+
+/* ─────────────────────────────────────────
+   MAKU PREMIUM RESPONSIVE SYSTEM
+───────────────────────────────────────── */
+
+/* 1. TABLETS & IPADS (Hasta 1024px) */
+@media (max-width: 1024px) {
+    /* HERO: De vertical a horizontal */
+    .hero-text-layer {
+        padding: 0 5%;
+    }
+    .hero-content-split {
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+    }
+    .hero-side.left-side, .hero-side.right-side {
+        justify-content: center;
+        flex: none;
+        width: 100%;
+    }
+    .maku-title-vertical {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+        text-align: center;
+    }
+    .maku-title-vertical .char {
+        font-size: clamp(5rem, 18vw, 9rem);
+        display: inline-block;
+        line-height: 1;
+    }
+    .right-content-inner {
+        text-align: center;
+        max-width: 90%;
+    }
+    .cta-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* GRID EXPERIENCIA (2 Columnas) */
+    .maku-experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* ALQUIMIA (Reordenamiento) */
+    .maku-alchemy-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        margin-top: 40px;
+    }
+    .maku-alchemy-center {
+        order: -1; /* El tarro va arriba de los ingredientes */
+    }
+    .maku-final-jar {
+        max-width: 350px;
+    }
+    .maku-ingredient-card.right-align {
+        text-align: left;
+        flex-direction: row;
+    }
+
+    /* LIFECYCLE (Timeline) */
+    .maku-timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* 2. MÓVILES GRANDES (Hasta 768px) */
+@media (max-width: 768px) {
+    section, .maku-section-experience, .maku-ingredients-section, .maku-section-lifecycle {
+        height: auto !important; /* Permitir scroll natural en móviles */
+        min-height: 100vh;
+        padding: 80px 6% !important;
+    }
+
+    /* HEADER TEXT */
+    .main-tagline {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    /* NAV DOTS & WIDGETS */
+    .side-dots-nav {
+        display: none; /* Estorba en pantallas pequeñas */
+    }
+    .maku-progress-container {
+        bottom: 20px;
+        right: 20px;
+        transform: scale(0.8);
+    }
+
+    /* SECCIÓN SENSORES / TEXTOS */
+    .maku-text-columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .maku-big-statement {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+    }
+
+    /* TESTIMONIOS (Masonry a 1 columna) */
+    .maku-testimonials-masonry {
+        grid-template-columns: 1fr;
+    }
+
+    /* SECCIÓN FINAL (Tienda) */
+    .maku-final-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .maku-final-info {
+        text-align: center;
+        align-items: center;
+    }
+    .maku-pricing-card {
+        border-left: none;
+        border-top: 1px solid #D4A373;
+        padding: 20px 0 0 0;
+    }
+    .maku-price-current {
+        font-size: 3rem;
+    }
+    .maku-btn-final-cta {
+        width: 100%;
+        padding: 18px 30px;
+    }
+
+    /* OVERLAY MENÚ MOBILE */
+    .menu-item {
+        transform: translateX(0);
+    }
+    .item-title {
+        font-size: 40px;
+    }
+    .menu-item:hover {
+        transform: translateX(10px);
+    }
+}
+
+/* 3. MÓVILES PEQUEÑOS (iPhone SE, etc - Hasta 480px) */
+@media (max-width: 480px) {
+    .maku-title-vertical .char {
+        font-size: 4.5rem;
+    }
+    .cta-minimal-pill {
+        padding: 15px 25px;
+        font-size: 0.65rem;
+        width: 100%;
+    }
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .maku-experience-grid {
+        grid-template-columns: 1fr;
+    }
+    .maku-ing-img-box {
+        width: 80px;
+        height: 80px;
+    }
+    .maku-ing-info h3 {
+        font-size: 1.2rem;
+    }
+    .maku-navbar {
+        padding: 20px;
+    }
+    .nav-logo {
+        font-size: 16px;
+    }
+}
+
+/* 4. AJUSTE PARA SCROLL SNAP EN MÓVIL */
+@media (max-pointer: coarse) {
+    html {
+        scroll-snap-type: none !important; /* Desactivar snap en touch para evitar saltos bruscos */
+    }
+}
+
+/* ─────────────────────────────────────────
+   REPARACIÓN HERO MOBILE (LETRAS AMONTONADAS)
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Contenedor principal del Hero */
+    .hero-content-split {
+        gap: 20px !important; /* Reducimos espacio para que todo suba */
+        padding-top: 60px;
+    }
+
+    /* Título MAKU Principal */
+    .maku-title-vertical .char {
+        font-size: 5.5rem !important; /* Tamaño más controlado */
+        line-height: 0.8;
+        /* Sombra estratégica para legibilidad sobre el frasco blanco */
+        text-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3);
+        z-index: 10;
+        position: relative;
+    }
+
+    /* Subtítulo "ORIGEN NATURAL" */
+    .right-content-inner h2 {
+        font-size: 2.2rem !important;
+        margin-top: -10px; /* Lo pegamos un poco al título principal */
+        text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        z-index: 10;
+    }
+
+    /* AJUSTE DE LA IMAGEN (FRASCO) */
+    .maku-hero-product {
+        margin-top: -30px; /* Subimos el frasco para que el texto lo abrace mejor */
+        transform: scale(0.85); /* Lo hacemos un poco más pequeño para dar aire */
+        opacity: 0.9; /* Un toque de transparencia ayuda a que el texto resalte */
+        z-index: 1;
+    }
+
+    /* Botón de acción */
+    .cta-group {
+        margin-top: 20px;
+        z-index: 15; /* Siempre clicable por encima de todo */
+    }
+
+    /* Texto "DESLIZA PARA EMPEZAR" */
+    .scroll-hint-minimal {
+        bottom: 20px;
+        font-size: 0.6rem;
+    }
+}
+
+/* Ajuste extra para pantallas muy pequeñas (iPhone SE) */
+@media (max-width: 380px) {
+    .maku-title-vertical .char {
+        font-size: 4rem !important;
+    }
+    .right-content-inner h2 {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* ─────────────────────────────────────────
+   REPARACIÓN HERO MOBILE - CONTRASTE TOTAL
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* 1. CREAMOS UN FONDO OSCURO DETRÁS DEL TEXTO */
+    .hero-text-layer {
+        /* Degradado de negro a transparente para "limpiar" el área del texto */
+        background: linear-gradient(to bottom, 
+            rgba(0,0,0,0.8) 0%, 
+            rgba(0,0,0,0.4) 40%, 
+            transparent 100%) !important;
+    }
+
+    /* 2. CAMBIO DE COLOR AL TÍTULO (DORADO MAKU) */
+    .maku-title-vertical .char {
+        color: #D4A373 !important; /* Cambiamos a Dorado para que no se pierda en el frasco */
+        font-size: 5rem !important;
+        line-height: 0.85;
+        font-weight: 800;
+        /* Sombra intensa para separar la letra del fondo */
+        text-shadow: 2px 2px 15px rgba(0,0,0,0.9) !important;
+        letter-spacing: -2px;
+    }
+
+    /* 3. REUBICACIÓN DEL SUBTÍTULO */
+    .right-content-inner h2 {
+        color: #F4F1DE !important; /* Crema para el subtítulo */
+        font-size: 1.8rem !important;
+        margin-top: 10px !important;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 10px rgba(0,0,0,1) !important;
+    }
+
+    /* 4. SEPARAR EL FRASCO DEL TEXTO */
+    .maku-hero-product {
+        margin-top: 20px !important; /* Empujamos el frasco hacia ABAJO */
+        transform: scale(0.75) !important; /* Un poco más pequeño para dar jerarquía al texto */
+        filter: brightness(0.7); /* Oscurecemos un poco la imagen para que el texto brille */
+        z-index: 1;
+    }
+
+    /* 5. BOTONES MÁS VISIBLES */
+    .cta-group {
+        margin-top: 30px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cta-minimal-pill {
+        background: #D4A373 !important; /* Botón sólido para que resalte */
+        color: #000 !important;
+        width: 80% !important;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+}
+
+/* Ajuste para pantallas extra pequeñas */
+@media (max-width: 380px) {
+    .maku-title-vertical .char {
+        font-size: 3.8rem !important;
+    }
+}
+
