@@ -333,13 +333,16 @@ export const Home = () => {
                                     </h2>
                                     <div className="cta-group">
                                         {/* Botón de Explorar Sabores */}
-                                        <a
-                                            href="#products"
+                                        <Link
+                                            to="/tienda"
                                             className="cta-minimal-pill"
-                                            onClick={(e) => handleManualNav(e, "products")}
+                                            onClick={() => {
+                                                // Opcional: Aseguramos que el scroll empiece arriba en la nueva página
+                                                window.scrollTo(0, 0);
+                                            }}
                                         >
                                             Explorar Sabores
-                                        </a>
+                                        </Link>
 
                                         {/* Botón de Nuestra Historia */}
                                         <a
