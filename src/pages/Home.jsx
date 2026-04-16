@@ -194,7 +194,7 @@ export const Home = () => {
             <header className="maku-navbar">
                 <div className="nav-container">
                     <div className="nav-logo" onClick={(e) => handleNavigation(e, "hero-section")}>
-                        MAKU <span>GRANOLA</span>
+                        MAKU <span>ALIMENTOS</span>
                     </div>
                     <button
                         className={`menu-hamburger ${isMenuOpen ? "is-open" : ""}`}
