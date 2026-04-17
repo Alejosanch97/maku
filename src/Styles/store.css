@@ -608,3 +608,172 @@ body.no-scroll {
         padding: 4px 10px;
     }
 }
+
+/* ─────────────────────────────────────────
+   CORRECCIÓN RESPONSIVE: BOTÓN Y CARRITO
+───────────────────────────────────────── */
+
+/* 1. Visibilidad del botón "Añadir al Ritual" */
+.mobile-add-btn {
+    display: none; /* Oculto en PC por defecto */
+}
+
+@media (max-width: 768px) {
+    /* Ocultamos el overlay de hover que bloquea clics en móviles */
+    .product-overlay-action {
+        display: none !important;
+    }
+
+    /* Mostramos el botón dedicado debajo de la info del producto */
+    .mobile-add-btn {
+        display: block !important;
+        width: 100%;
+        background: var(--maku-dark) !important;
+        color: white !important;
+        border: none;
+        padding: 16px;
+        margin-top: 15px;
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 13px;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .mobile-add-btn:active {
+        background: var(--maku-gold) !important;
+        transform: scale(0.98);
+    }
+
+    /* 2. Ajuste de imagen para móviles */
+    .product-image-wrapper {
+        height: 280px !important; /* Altura más cómoda para móviles */
+        background: #fff;
+    }
+
+    .product-card-glass {
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* 3. Panel del Carrito (Full Screen en Móvil) */
+    .maku-cart-panel {
+        width: 100% !important;
+        right: -100%;
+        z-index: 10001 !important; /* Encima de todo */
+    }
+
+    .maku-cart-panel.is-open {
+        right: 0 !important;
+    }
+
+    .cart-inner {
+        padding: 30px 20px !important;
+    }
+
+    /* 4. Botón Flotante del Carrito (El círculo 🛒) */
+    .cart-reopen-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 65px !important;
+        height: 65px !important;
+        bottom: 25px !important;
+        right: 25px !important;
+        background: var(--maku-dark) !important;
+        z-index: 9999 !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+        border: 2px solid var(--maku-gold) !important;
+    }
+
+    .cart-badge-count {
+        top: -5px !important;
+        right: -5px !important;
+        background: var(--maku-gold) !important;
+        color: white !important;
+        font-weight: bold;
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+}
+
+/* 5. Ajustes para el contenido interno del carrito en móvil */
+@media (max-width: 480px) {
+    .cart-item-row {
+        padding: 15px 0;
+    }
+    
+    .item-name {
+        font-size: 14px;
+    }
+
+    .qty-controls button {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .total-amount {
+        font-size: 22px !important;
+    }
+
+    .btn-whatsapp-checkout {
+        padding: 16px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* 6. Evitar que el fondo se mueva cuando el carro está abierto */
+body.no-scroll {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    /* 1. Centrar el contenedor de la imagen y la imagen misma */
+    .product-image-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto 15px auto !important; /* Centra el bloque y da espacio abajo */
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1; /* Mantiene la imagen cuadrada y centrada */
+        overflow: hidden;
+        background-color: #f9f9f9; /* Un fondo suave por si la foto no es 100% ancha */
+    }
+
+    .product-image-wrapper img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Asegura que la imagen llene el espacio sin deformarse */
+        display: block;
+    }
+
+    /* 2. Centrar los textos e info del producto para que todo guarde simetría */
+    .product-info-premium {
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-price-box {
+        justify-content: center !important;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* 3. Ajuste de la tarjeta para que no se vea pegada a los bordes de la pantalla */
+    .product-card-glass {
+        width: 90% !important;
+        margin: 0 auto 20px auto !important; /* Centra la tarjeta completa en la pantalla */
+    }
+}

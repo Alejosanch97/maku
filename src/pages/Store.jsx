@@ -8,7 +8,6 @@ export const Store = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    // Inicializamos el carrito desde localStorage si existe
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem("maku_cart");
         return savedCart ? JSON.parse(savedCart) : [];
@@ -20,6 +19,16 @@ export const Store = () => {
     useEffect(() => {
         localStorage.setItem("maku_cart", JSON.stringify(cart));
     }, [cart]);
+
+    // CORRECCIÓN: Bloquear scroll del body cuando el carrito está abierto
+    useEffect(() => {
+        if (isCartOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => { document.body.style.overflow = "auto"; };
+    }, [isCartOpen]);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -49,7 +58,7 @@ export const Store = () => {
             }
             return [...prev, { ...product, quantity: 1 }];
         });
-        setIsCartOpen(true); // Abrir el carrito automáticamente al agregar
+        setIsCartOpen(true); 
     };
 
     const updateQuantity = (productId, amount) => {
@@ -74,17 +83,13 @@ export const Store = () => {
 
     const sendWhatsApp = () => {
         const baseMsg = "✨ *NUEVO PEDIDO - MERCADO MAKU* ✨\n\nHola! Me gustaría encargar los siguientes productos:\n\n";
-        
         const itemsMsg = cart.map(item => {
             const price = Number(item.precio_rebajado) > 0 ? Number(item.precio_rebajado) : Number(item.precio || 0);
             return `🔸 *${item.nombre_producto}*\n   Cant: ${item.quantity} x $${price.toLocaleString()}\n   Subtotal: $${(price * item.quantity).toLocaleString()}\n`;
         }).join("\n");
-
         const totalMsg = `\n━━━━━━━━━━━━━━━\n💰 *TOTAL DEL PEDIDO: $${calculateTotal().toLocaleString()}*`;
-        
         const phoneNumber = "573106396984"; 
         const finalUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(baseMsg + itemsMsg + totalMsg)}`;
-        
         window.open(finalUrl, "_blank");
     };
 
@@ -138,9 +143,9 @@ export const Store = () => {
                                         ${hasDiscount ? Number(prod.precio_rebajado).toLocaleString() : Number(prod.precio).toLocaleString()}
                                     </span>
                                 </div>
-                                {/* Botón visible también fuera del hover para móviles */}
-                                <button onClick={() => addToCart(prod)} className="mobile-add-btn" style={{ display: 'none' }}>
-                                    Añadir
+                                {/* CORRECCIÓN: Botón móvil habilitado y sin display: none */}
+                                <button onClick={() => addToCart(prod)} className="mobile-add-btn">
+                                    Añadir al Ritual
                                 </button>
                             </div>
                         </div>
@@ -163,23 +168,24 @@ export const Store = () => {
                                 <button onClick={() => setIsCartOpen(false)} style={{ color: '#A67C52', background: 'none', border: 'none', marginTop: '10px', textDecoration: 'underline', cursor: 'pointer' }}>Explorar sabores</button>
                             </div>
                         ) : (
-                            cart.map((item, idx) => {
+                            cart.map((item) => {
                                 const itemPrice = Number(item.precio_rebajado) > 0 ? Number(item.precio_rebajado) : Number(item.precio);
                                 const itemId = item.id || item.nombre_producto;
                                 return (
                                     <div key={itemId} className="cart-item-row">
                                         <div className="item-details">
                                             <span className="item-name">{item.nombre_producto}</span>
-                                            <div className="qty-controls" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '5px' }}>
-                                                <button onClick={() => updateQuantity(itemId, -1)} style={{ border: '1px solid #ddd', background: 'white', width: '25px', height: '25px', cursor: 'pointer' }}>-</button>
-                                                <span className="item-qty" style={{ fontSize: '14px', fontWeight: '600' }}>{item.quantity}</span>
-                                                <button onClick={() => updateQuantity(itemId, 1)} style={{ border: '1px solid #ddd', background: 'white', width: '25px', height: '25px', cursor: 'pointer' }}>+</button>
+                                            <div className="qty-controls">
+                                                <button onClick={() => updateQuantity(itemId, -1)}>-</button>
+                                                <span className="item-qty">{item.quantity}</span>
+                                                <button onClick={() => updateQuantity(itemId, 1)}>+</button>
                                             </div>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                                             <span className="item-price">${(itemPrice * item.quantity).toLocaleString()}</span>
                                             <button 
                                                 onClick={() => removeFromCart(itemId)}
+                                                className="remove-item-link"
                                                 style={{ background: 'none', border: 'none', color: '#ff4444', fontSize: '11px', cursor: 'pointer', marginTop: '8px' }}
                                             >
                                                 Eliminar
@@ -193,9 +199,9 @@ export const Store = () => {
 
                     {cart.length > 0 && (
                         <div className="cart-footer">
-                            <div className="total-row" style={{ display: 'flex', justifyContent: 'space-between', padding: '25px 0', borderTop: '2px solid #FDFBF7' }}>
-                                <span style={{ fontWeight: '400', letterSpacing: '2px' }}>TOTAL ESTIMADO</span>
-                                <span className="total-amount" style={{ fontWeight: '700', color: '#A67C52', fontSize: '20px' }}>
+                            <div className="total-row">
+                                <span>TOTAL ESTIMADO</span>
+                                <span className="total-amount">
                                     ${calculateTotal().toLocaleString()}
                                 </span>
                             </div>
@@ -207,7 +213,7 @@ export const Store = () => {
                 </div>
             </div>
             
-            {/* Botón flotante para reabrir el carrito */}
+            {/* Botón flotante siempre accesible */}
             {cart.length > 0 && (
                 <button className="cart-reopen-btn" onClick={() => setIsCartOpen(true)}>
                     <span className="cart-badge-count">

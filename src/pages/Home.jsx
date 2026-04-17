@@ -402,19 +402,19 @@ export const Home = () => {
                                 title: "Crunch Terapéutico",
                                 desc: "Un horneado tan preciso que el sonido de cada bocado se vuelve tu momento favorito del día.",
                                 tag: "Sensorial",
-                                icon: "✨"
+                                icon: "🥣"
                             },
                             {
                                 title: "Saciedad Real",
                                 desc: "Densidad nutricional que calma el hambre de verdad, ideal para tus mañanas más exigentes.",
                                 tag: "Nutrición",
-                                icon: "🌿"
+                                icon: "💪"
                             },
                             {
                                 title: "Hecho a Mano",
                                 desc: "Lotes pequeños creados con atención al detalle, garantizando frescura en cada frasco.",
                                 tag: "Artesanal",
-                                icon: "🍯"
+                                icon: "📜"
                             }
                         ].map((card, index) => (
                             <div key={index} className="maku-exp-card" data-aos="fade-up" data-aos-delay={index * 150}>
