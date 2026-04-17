@@ -559,3 +559,52 @@
 body.no-scroll {
     overflow: hidden;
 }
+
+/* ─────────────────────────────────────────
+   SOLUCIÓN PARA DISPOSITIVOS TÁCTILES (BOTÓN SIEMPRE VISIBLE)
+───────────────────────────────────────── */
+
+@media (pointer: coarse), (max-width: 768px) {
+    /* 1. Forzamos que el overlay sea visible sin necesidad de hover */
+    .product-overlay-action {
+        position: relative !important; /* Cambia de absolute a relative para que ocupe espacio real */
+        transform: translateY(0) !important; /* Lo posicionamos en su lugar original */
+        background: transparent !important; /* Quitamos el fondo oscuro para que no tape la imagen */
+        padding: 10px 0 0 0 !important;
+        opacity: 1 !important;
+        display: block !important;
+    }
+
+    /* 2. Ajustamos el contenedor de la imagen para que no oculte el botón */
+    .product-image-wrapper {
+        height: auto !important;
+        aspect-ratio: 1 / 1.2; /* Mantiene una proporción elegante */
+        margin-bottom: 0;
+    }
+
+    /* 3. Estilizamos el botón para que destaque como un elemento principal de la tarjeta */
+    .btn-add-quick {
+        background: var(--maku-dark) !important;
+        color: white !important;
+        border-radius: 4px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 15px !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: block;
+        width: 100%;
+    }
+
+    /* 4. Quitamos el efecto de desplazamiento de la tarjeta para evitar saltos raros al tocar */
+    .product-card-glass:hover {
+        transform: none !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    }
+
+    /* 5. Aseguramos que el badge (Nuevo/Oferta) no tape elementos importantes */
+    .product-badge {
+        top: 10px;
+        right: 10px;
+        padding: 4px 10px;
+    }
+}

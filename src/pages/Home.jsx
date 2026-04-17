@@ -80,9 +80,9 @@ export const Home = () => {
         const checkLock = () => {
             const scrollTop = window.scrollY;
             // Si estamos navegando por clic o el menú está abierto, NO bloqueamos a 800px
-            if (videoStarted && !isVideoFinished && scrollTop >= 800 && !isNavigatingByClick && !isMenuOpen) {
+            if (videoStarted && !isVideoFinished && scrollTop >= 790 && !isNavigatingByClick && !isMenuOpen) {
                 document.body.style.overflow = "hidden";
-                window.scrollTo(0, 800);
+                window.scrollTo(0, 790);
             } else {
                 // Si el menú está abierto, bloqueamos el scroll del fondo
                 document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
