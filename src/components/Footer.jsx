@@ -18,7 +18,7 @@ export const Footer = ({ handleManualNav }) => {
                 <div className="maku-footer-top">
                     <div className="maku-footer-brand">
                         <h3 className="maku-footer-logo">MAKU <span>GRANOLA</span></h3>
-                        <p>Artesanía consciente. Horneado en Bogotá.</p>
+                        <p>Artesanía consciente. Horneado en Cali.</p>
                     </div>
                     
                     <div className="maku-footer-links">
