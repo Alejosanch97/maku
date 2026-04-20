@@ -606,7 +606,7 @@ export const Home = () => {
                                 <div className="maku-product-bg-circle"></div>
                                 <img src={initialImage} alt="Maku Granola" className="maku-main-jar" />
                                 <div className="maku-floating-labels">
-                                    <span>500g</span>
+                                    <span>300g</span>
                                     <span>Premium</span>
                                 </div>
                             </div>
@@ -621,8 +621,8 @@ export const Home = () => {
                                 <div className="maku-pricing-card">
                                     <p className="maku-investment-text">Inversión en tu bienestar:</p>
                                     <div className="maku-price-row">
-                                        <span className="maku-price-old">$42.000</span>
-                                        <span className="maku-price-current">$35.000</span>
+                                        <span className="maku-price-old">$60.000</span>
+                                        <span className="maku-price-current">$48.000</span>
                                     </div>
                                 </div>
 
