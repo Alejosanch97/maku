@@ -2476,3 +2476,181 @@ body.menu-open {
     }
 }
 
+/* ──────────────────────────────────────────────────────────────
+   MAKU PREMIUM RESPONSIVE SYSTEM - REPARACIÓN TOTAL
+   ────────────────────────────────────────────────────────────── */
+
+/* 1. AJUSTES GENERALES PARA DISPOSITIVOS TÁCTILES */
+@media (max-pointer: coarse) {
+    html {
+        scroll-snap-type: none !important; /* Evita rebotes molestos en iPad/Móvil */
+    }
+    section, .maku-section-experience, .maku-ingredients-section, .maku-section-lifecycle, .maku-section-final {
+        height: auto !important; /* Permite que el contenido dicte el alto si es necesario */
+        min-height: 100vh;
+        padding: 100px 5% !important;
+    }
+}
+
+/* 2. TABLETS & IPADS (HORIZONTAL Y VERTICAL) */
+@media (max-width: 1180px) {
+    /* HERO: Reorganización para evitar choques con el producto */
+    .hero-content-split {
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-side.left-side, .hero-side.right-side {
+        justify-content: center !important;
+        flex: none;
+        width: 100%;
+    }
+
+    .maku-title-vertical {
+        writing-mode: horizontal-tb !important;
+        transform: rotate(0) !important;
+    }
+
+    .maku-title-vertical .char {
+        font-size: clamp(4rem, 12vw, 8rem) !important;
+        display: inline-block;
+        line-height: 1;
+        letter-spacing: 0.02em;
+    }
+
+    .right-content-inner {
+        text-align: center !important;
+        max-width: 600px !important;
+        margin: 0 auto;
+    }
+
+    .main-tagline {
+        font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+        margin-bottom: 30px !important;
+    }
+
+    .cta-group {
+        justify-content: center !important;
+    }
+
+    /* GRID DE EXPERIENCIA: 2 columnas para iPad */
+    .maku-experience-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+
+    /* ALQUIMIA: Evitar que los ingredientes se amontonen */
+    .maku-alchemy-grid {
+        grid-template-columns: 1fr !important;
+        gap: 50px !important;
+    }
+
+    .maku-alchemy-center {
+        order: -1; /* El producto va primero en vertical */
+        margin-bottom: 30px;
+    }
+
+    .maku-final-jar {
+        max-width: 320px !important;
+    }
+
+    .maku-ingredient-card.right-align {
+        text-align: left !important;
+        flex-direction: row !important;
+    }
+
+    /* SECCIÓN FINAL (TIENDA) */
+    .maku-final-grid {
+        grid-template-columns: 1fr !important;
+        gap: 60px !important;
+    }
+}
+
+/* 3. MÓVILES (CELULARES) - OPTIMIZACIÓN DE CONTRASTE */
+@media (max-width: 768px) {
+    /* Ajuste de Navbar */
+    .maku-navbar {
+        padding: 15px 25px !important;
+    }
+
+    /* Hero Text Layer - Mejoramos visibilidad sobre el fondo */
+    .hero-text-layer {
+        background: linear-gradient(to bottom, 
+            rgba(0,0,0,0.7) 0%, 
+            rgba(0,0,0,0.2) 50%, 
+            rgba(0,0,0,0.8) 100%) !important;
+    }
+
+    .maku-title-vertical .char {
+        font-size: 4.5rem !important;
+        color: var(--sand) !important; /* Color arena para que resalte */
+        text-shadow: 0 4px 15px rgba(0,0,0,0.8) !important;
+    }
+
+    .main-tagline {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Cuadrículas a 1 columna para celulares */
+    .maku-experience-grid, 
+    .maku-timeline-grid, 
+    .maku-testimonials-masonry {
+        grid-template-columns: 1fr !important;
+    }
+
+    .maku-exp-card {
+        padding: 30px 20px !important;
+    }
+
+    /* Alquimia: Ajuste de círculos de imagen */
+    .maku-ing-img-box {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .maku-ing-info h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* Botones de acción en Móvil */
+    .cta-group {
+        flex-direction: column !important;
+        width: 100%;
+        gap: 15px !important;
+    }
+
+    .cta-minimal-pill, .maku-btn-final-cta {
+        width: 100% !important;
+        text-align: center;
+        padding: 16px 20px !important;
+    }
+
+    /* Precio en la sección final */
+    .maku-price-current {
+        font-size: 2.8rem !important;
+    }
+
+    /* Ocultar elementos que ensucian la vista móvil */
+    .side-dots-nav, .scroll-hint-minimal {
+        display: none !important;
+    }
+}
+
+/* 4. PANTALLAS EXTRA PEQUEÑAS (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .maku-title-vertical .char {
+        font-size: 3.5rem !important;
+    }
+    
+    .maku-big-statement {
+        font-size: 2rem !important;
+    }
+
+    .maku-badge-gold {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.2em !important;
+    }
+}
